@@ -40,7 +40,10 @@ export class AnimalService extends Service implements OnInit {
         return animal.find((item) => item.id === id);
       }
   
-    public getAnimalBySpecies(species: string): Animal[] {
+    public getAnimalBySpecies(species: string | undefined = undefined): Animal[] {
+        if (species === undefined) {
+            return animal;
+        } else
         return animal.filter((item) => item.species === species);
       }
 
@@ -48,11 +51,12 @@ export class AnimalService extends Service implements OnInit {
         let newAnimal: Animal = {id, species, name, age, gender};
         animal.push(newAnimal);
     }
-
+/*
     public listAll(species: string | undefined = undefined): Animal[] {
         if (species === undefined){
             return animal;
         } else
         return animal.filter((item) => item.species === species);
     }
+*/
 }
