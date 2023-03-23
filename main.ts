@@ -28,5 +28,5 @@ console.log(animalSpecies);
     //Ellenőrzésképp minden állat listázása
 
 const addAnimal = animalService.addAnimal(44444, Species.CAT, "Betyár", 3, Gender.MALE);
-console.log(animalService.listAll(undefined));
+console.log(animalService.getAnimalBySpecies(undefined));
 */
