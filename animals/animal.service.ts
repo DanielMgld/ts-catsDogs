@@ -1,4 +1,3 @@
-import { OnInit } from "./core/on-init.interface";
 import { Service } from "./core/service";
 import { Gender } from "./enums/gender-enum";
 import { Species } from "./enums/species.enum";
@@ -32,21 +31,19 @@ const fDoggoOne: Dog = {
 
 let animal: Animal[] = [fDoggoOne, mDoggoOne, fCatOne];
 
-export class AnimalService extends Service implements OnInit {
-    public onInit(): void {
-    }
+export class AnimalService extends Service{
 
     public getAnimalByID(id: number): Animal | undefined {
         return animal.find((item) => item.id === id);
       }
   
-    public getAnimalBySpecies(species: string | undefined = undefined): Animal[] {
+      public getAnimalBySpecies(species?: Species): Animal[] {
         if (species === undefined) {
             return animal;
         } else
         return animal.filter((item) => item.species === species);
       }
-
+      
     public addAnimal (id: number, species: Species, name: string, age: number, gender: Gender,) {
         let newAnimal: Animal = {id, species, name, age, gender};
         animal.push(newAnimal);
